@@ -11,6 +11,7 @@ func main() {
 	router.GET("/", rootHandler)
 	router.GET("/my/profile", myProfileHandler)
 	router.GET("/books/:id", booksHandler)
+	router.GET("/query", queryHandler)
 	router.Run()
 }
 
@@ -33,5 +34,12 @@ func booksHandler(c *gin.Context)  {
 	id := c.Param("id")
 	c.JSON(http.StatusOK, gin.H {
 		"id" : id,
+	})
+}
+
+func queryHandler(c *gin.Context)  {
+	title := c.Query("title")
+	c.JSON(http.StatusOK, gin.H {
+		"title" : title,
 	})
 }
