@@ -15,5 +15,13 @@ func main() {
 		})
 	})
 
-	router.Run()
+	router.GET("/my/profile", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H {
+			"name" : "ivannofick",
+			"bio" : "A Profesional Developer",
+			"bod" : "18-xx-xxxx",
+		})
+	})
+
+	router.Run(":8100")
 }
